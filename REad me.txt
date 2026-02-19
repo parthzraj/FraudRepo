@@ -1,0 +1,3 @@
+python app.py 
+b2b portal authenticate first
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudShield - Phishing Detector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <span class="shield-icon">🛡️</span>
+                <h1>FraudShield</h1>
+            </div>
+            <p>Advanced Protection Against Phishing Attacks in Real-Time</p>
+        </header>
+
+        <div class="form-card">
+            <h2 class="form-title">Submit Audio for Analysis</h2>
+            <form id="detectionForm" method="POST" action="/detect" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="client_id">Client ID</label>
+                        <input type="text" id="client_id" name="client_id" placeholder="Enter your client ID" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="client_secret">Client Secret</label>
+                        <input type="password" id="client_secret" name="client_secret" placeholder="Enter your client secret" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="sender">Sender Phone</label>
+                        <input type="text" id="sender" name="sender" placeholder="e.g., +912222222222" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="receiver">Receiver Phone</label>
+                        <input type="text" id="receiver" name="receiver" placeholder="e.g., +919999999999" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="date_time">Date & Time</label>
+                        <input type="text" id="date_time" name="date_time" placeholder="e.g., 2024-10-27T13:18:00" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="locale">Locale</label>
+                        <input type="text" id="locale" name="locale" placeholder="e.g., EN-IN" required>
+                    </div>
+                    
+                    <div class="input-group full-width">
+                        <label for="file_path">Audio File</label>
+                        <input type="file" id="file_path" name="file_path" accept="audio/wav" required>
+                    </div>
+                    
+                    <div class="button-container">
+                        <button type="submit" class="submit-button">Detect Phishing</button>
+                    </div>
+                    
+                    <div id="result" class="result"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
